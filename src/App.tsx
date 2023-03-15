@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./App.css";
+import Settings from "./components/settings";
 
 const App = () => {
   //interfaces
@@ -15,7 +16,11 @@ const App = () => {
     night: false,
   });
 
-  return <div></div>;
+  return (
+    <div>
+      <Settings setSettings={setSettings} />
+    </div>
+  );
 };
 
 export default App;
