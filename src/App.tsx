@@ -4,21 +4,15 @@ import Settings from "./components/settings";
 
 const App = () => {
   //interfaces
-  interface settings {
-    font: string;
-    night: boolean;
-  }
 
   //states
 
-  const [setting, setSetting] = useState<settings>({
-    font: "Sans Serif",
-    night: false,
-  });
+  const [font, setFont] = useState<string>("sans serif");
+  const [night, setNight] = useState<boolean>(false);
 
   return (
     <div>
-      <Settings setSettings={setSettings} />
+      <Settings setFont={setFont} setNight={setNight} />
     </div>
   );
 };
