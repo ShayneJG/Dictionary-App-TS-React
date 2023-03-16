@@ -1,7 +1,14 @@
+import { useState } from "react";
+import arrowDown from "../assets/images/icon-arrow-down.svg";
+
 const Settings: React.FunctionComponent<SettingsProps> = ({
   setFont,
   setNight,
 }) => {
+  //state
+
+  const [open, setOpen] = useState<boolean>(false);
+
   return (
     <div>
       <Dropdown setFont={setFont} />
@@ -31,6 +38,7 @@ const Dropdown: React.FunctionComponent<{ setFont: (val: string) => void }> = ({
         <option value="serif">Serif</option>
         <option value="monospace">Monospace</option>
       </select>
+      <img src={arrowDown}></img>
     </div>
   );
 };
