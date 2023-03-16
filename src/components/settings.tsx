@@ -7,8 +7,6 @@ const Settings: React.FunctionComponent<SettingsProps> = ({
 }) => {
   //state
 
-  const [open, setOpen] = useState<boolean>(false);
-
   return (
     <div>
       <Dropdown setFont={setFont} />
@@ -29,16 +27,25 @@ const Dropdown: React.FunctionComponent<{ setFont: (val: string) => void }> = ({
     setFont(e.currentTarget.value);
   }
 
+  //state
+  const [open, setOpen] = useState<boolean>(false);
+  const toggleOpen = () => {
+    setOpen((prev) => !prev);
+  };
+
   return (
-    <div>
-      <select onChange={changeHandle}>
+    <div className="flex">
+      <select
+        onChange={changeHandle}
+        className={"outline-none	appearance-none pr-10"}
+      >
         <option selected value="sans serif">
           Sans Serif
         </option>
         <option value="serif">Serif</option>
         <option value="monospace">Monospace</option>
       </select>
-      <img src={arrowDown}></img>
+      <img src={arrowDown} className="relative right-10"></img>
     </div>
   );
 };
