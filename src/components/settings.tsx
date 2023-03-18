@@ -1,7 +1,6 @@
 import { useState } from "react";
-import arrowDown from "../assets/images/icon-arrow-down.svg";
 import bookIcon from "../assets/images/logo.svg";
-
+import Switch from "react-switch";
 const Settings: React.FunctionComponent<SettingsProps> = ({
   setFont,
   setNight,
@@ -9,7 +8,8 @@ const Settings: React.FunctionComponent<SettingsProps> = ({
   //state
 
   return (
-    <div>
+    <div className="flex">
+      <img src={bookIcon}></img>
       <Dropdown setFont={setFont} />
     </div>
   );
@@ -20,6 +20,7 @@ interface SettingsProps {
   setNight: (val: boolean) => void;
 }
 
+//font selector
 const Dropdown: React.FunctionComponent<{ setFont: (val: string) => void }> = ({
   setFont,
 }): JSX.Element => {
@@ -28,15 +29,8 @@ const Dropdown: React.FunctionComponent<{ setFont: (val: string) => void }> = ({
     setFont(e.currentTarget.value);
   }
 
-  //state
-  const [open, setOpen] = useState<boolean>(false);
-  const toggleOpen = () => {
-    setOpen((prev) => !prev);
-  };
-
   return (
     <div className="flex">
-      <img src={bookIcon}></img>
       <select
         onChange={changeHandle}
         className={"outline-none	appearance-none pr-10"}
@@ -50,5 +44,7 @@ const Dropdown: React.FunctionComponent<{ setFont: (val: string) => void }> = ({
     </div>
   );
 };
+
+//night mode selector
 
 export default Settings;
