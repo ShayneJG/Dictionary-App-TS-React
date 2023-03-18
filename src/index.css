@@ -1,3 +1,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+select {
+  background-image: url("./assets/images/icon-arrow-down.svg");
+  background-repeat: no-repeat;
+  background-position: right center;
+  background-position: calc(100% - 6px) center;
+}
