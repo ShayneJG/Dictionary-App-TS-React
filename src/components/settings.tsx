@@ -1,24 +1,40 @@
 import { useState } from "react";
 import bookIcon from "../assets/images/logo.svg";
 import Switch from "react-switch";
+import moonIcon from "../assets/images/icon-moon.svg";
+
+//interfaces
+interface SettingsProps {
+  setFont: (val: string) => void;
+  setNight: React.Dispatch<React.SetStateAction<boolean>>;
+  night: boolean;
+}
+interface NightmodeProps {
+  setNight: React.Dispatch<React.SetStateAction<boolean>>;
+  night: boolean;
+}
+
 const Settings: React.FunctionComponent<SettingsProps> = ({
   setFont,
   setNight,
+  night,
 }) => {
-  //state
-
   return (
-    <div className="flex">
-      <img src={bookIcon}></img>
-      <Dropdown setFont={setFont} />
+    <div className="flex flex-row mt-10">
+      <div className="w-1/2">
+        <img src={bookIcon}></img>
+      </div>
+      <div className=" w-1/2 flex justify-end content-center">
+        <Dropdown setFont={setFont} />
+        <div className="border border-solid"></div>
+
+        <Nightmode setNight={setNight} night={night} />
+
+        <img src={moonIcon}></img>
+      </div>
     </div>
   );
 };
-
-interface SettingsProps {
-  setFont: (val: string) => void;
-  setNight: (val: boolean) => void;
-}
 
 //font selector
 const Dropdown: React.FunctionComponent<{ setFont: (val: string) => void }> = ({
@@ -43,6 +59,18 @@ const Dropdown: React.FunctionComponent<{ setFont: (val: string) => void }> = ({
       </select>
     </div>
   );
+};
+
+//nightmode slider
+const Nightmode: React.FunctionComponent<NightmodeProps> = ({
+  setNight,
+  night,
+}) => {
+  function changeHandle() {
+    setNight((prev) => !prev);
+  }
+
+  return <Switch checked={night} onChange={changeHandle} className="m-auto" />;
 };
 
 //night mode selector

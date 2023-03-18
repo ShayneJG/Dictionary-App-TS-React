@@ -11,8 +11,8 @@ const App = () => {
   const [night, setNight] = useState<boolean>(false);
 
   return (
-    <div>
-      <Settings setFont={setFont} setNight={setNight} />
+    <div id="app-container" className="w-1/2 m-auto">
+      <Settings setFont={setFont} setNight={setNight} night={night} />
     </div>
   );
 };
