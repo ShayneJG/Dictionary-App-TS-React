@@ -11,9 +11,13 @@ const Search: React.FunctionComponent<SearchProps> = ({
   search,
   setSearch,
 }) => {
+  function changeHandle(e: React.ChangeEvent<HTMLInputElement>) {
+    setSearch(e.currentTarget.value);
+  }
   function submitHandle(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    setSearch(e.currentTarget.value);
+
+    console.log(e.currentTarget.elements[0]);
   }
 
   return (
@@ -22,7 +26,7 @@ const Search: React.FunctionComponent<SearchProps> = ({
         onSubmit={submitHandle}
         className="border border-solid flex justify-between"
       >
-        <input type="text" />
+        <input type="text" onChange={changeHandle} value={search} />
         <button id="search-button" type="submit">
           {<img src={searchIcon} />}
         </button>
