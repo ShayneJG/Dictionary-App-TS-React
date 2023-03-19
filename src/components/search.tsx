@@ -1,15 +1,16 @@
 //interfaces
 import searchIcon from "../assets/images/icon-search.svg";
-import { ReactElement } from "react";
 
 interface SearchProps {
   search: string;
   setSearch: React.Dispatch<React.SetStateAction<string>>;
+  getWord: Function;
 }
 
 const Search: React.FunctionComponent<SearchProps> = ({
   search,
   setSearch,
+  getWord,
 }) => {
   function changeHandle(e: React.ChangeEvent<HTMLInputElement>) {
     setSearch(e.currentTarget.value);
@@ -17,7 +18,7 @@ const Search: React.FunctionComponent<SearchProps> = ({
   function submitHandle(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
 
-    console.log(e.currentTarget.elements[0]);
+    getWord();
   }
 
   return (
