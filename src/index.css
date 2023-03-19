@@ -8,10 +8,3 @@ select {
   background-position: right center;
   background-position: calc(100% - 6px) center;
 }
-
-input {
-  background-image: url("./assets/images/icon-search.svg");
-  background-repeat: no-repeat;
-  background-position: right center;
-  background-position: calc(100% - 6px) center;
-}
