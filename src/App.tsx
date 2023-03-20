@@ -25,7 +25,7 @@ type Definition = {
   };
 };
 
-type Meaning = {
+export type Meanings = {
   partOfSpeech: string;
   definitions: Definition[];
   synonyms: string[];
@@ -40,7 +40,7 @@ export type WordApiResponse = {
   word: string;
   phonetic?: string;
   phonetics: Phonetics[];
-  meanings: Meaning[];
+  meanings: Meanings[];
   sourceUrls: string[];
   license?: {
     name: string;

@@ -1,5 +1,6 @@
 import { WordApiResponse } from "../App";
 import playIcon from "../assets/images/icon-play.svg";
+import PartOfSpeech from "./partOfSpeech";
 //https://api.dictionaryapi.dev/api/v2/entries/en/<word>
 
 interface DefinitionProps {
@@ -8,7 +9,9 @@ interface DefinitionProps {
 
 const Definition: React.FC<DefinitionProps> = ({ word }) => {
   let audio: string;
-
+  word.meanings.map((meaning) => {
+    console.log(meaning);
+  });
   word.phonetics.map((str) => {
     if (str.audio !== "") {
       audio = str.audio;
@@ -24,7 +27,11 @@ const Definition: React.FC<DefinitionProps> = ({ word }) => {
         </div>
         <img src={playIcon}></img>
       </div>
-      <div id="parts-of-speech"></div>
+      <div id="parts-of-speech">
+        {word.meanings.map((meaning) => (
+          <PartOfSpeech meaning={meaning} />
+        ))}
+      </div>
     </div>
   );
 };
