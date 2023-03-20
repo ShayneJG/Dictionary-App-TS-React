@@ -7,7 +7,11 @@ interface DefinitionProps {
 }
 
 const Definition: React.FC<DefinitionProps> = ({ data }) => {
-  return <div></div>;
+  return (
+    <div>
+      <h1>{}</h1>
+    </div>
+  );
 };
 
 export default Definition;

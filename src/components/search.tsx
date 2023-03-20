@@ -8,14 +8,18 @@ interface SearchProps {
 
 const Search: React.FunctionComponent<SearchProps> = ({ fetchWord }) => {
   const [search, setSearch] = useState<string>("");
+  const [error, setError] = useState<string>("");
 
   function changeHandle(e: React.ChangeEvent<HTMLInputElement>) {
     setSearch(e.currentTarget.value);
   }
-  function submitHandle(e: React.FormEvent<HTMLFormElement>) {
+  async function submitHandle(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-
-    fetchWord(search);
+    try {
+      await fetchWord(search);
+    } catch (error: any) {
+      setError(error.message);
+    }
   }
 
   return (
@@ -29,6 +33,7 @@ const Search: React.FunctionComponent<SearchProps> = ({ fetchWord }) => {
           {<img src={searchIcon} />}
         </button>
       </form>
+      {error && <p>{error}</p>}
     </div>
   );
 };
