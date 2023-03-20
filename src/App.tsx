@@ -3,51 +3,53 @@ import "./App.css";
 import Settings from "./components/settings";
 import Search from "./components/search";
 import Definition from "./components/definition";
+
+type Phonetics = {
+  text: string;
+  audio: string;
+  sourceUrl?: string;
+  license?: {
+    name: string;
+    url: string;
+  };
+};
+
+type Definition = {
+  definition: string;
+  synonyms: string[];
+  antonyms: string[];
+  example?: string;
+  license?: {
+    name: string;
+    url: string;
+  };
+};
+
+type Meaning = {
+  partOfSpeech: string;
+  definitions: Definition[];
+  synonyms: string[];
+  antonyms: string[];
+  license?: {
+    name: string;
+    url: string;
+  };
+};
+
+export type WordApiResponse = {
+  word: string;
+  phonetic?: string;
+  phonetics: Phonetics[];
+  meanings: Meaning[];
+  sourceUrls: string[];
+  license?: {
+    name: string;
+    url: string;
+  };
+};
+
 const App = () => {
   //interfaces
-  type Phonetics = {
-    text: string;
-    audio: string;
-    sourceUrl?: string;
-    license?: {
-      name: string;
-      url: string;
-    };
-  };
-
-  type Definition = {
-    definition: string;
-    synonyms: string[];
-    antonyms: string[];
-    example?: string;
-    license?: {
-      name: string;
-      url: string;
-    };
-  };
-
-  type Meaning = {
-    partOfSpeech: string;
-    definitions: Definition[];
-    synonyms: string[];
-    antonyms: string[];
-    license?: {
-      name: string;
-      url: string;
-    };
-  };
-
-  type WordApiResponse = {
-    word: string;
-    phonetic?: string;
-    phonetics: Phonetics[];
-    meanings: Meaning[];
-    sourceUrls: string[];
-    license?: {
-      name: string;
-      url: string;
-    };
-  };
 
   const firstWord: WordApiResponse = {
     word: "origin",
@@ -135,11 +137,9 @@ const App = () => {
     <div id="app-container" className="w-1/2 m-auto">
       <Settings setFont={setFont} setNight={setNight} night={night} />
       <Search fetchWord={fetchWord} />
-      <Definition data={data} />
+      <Definition word={data} />
     </div>
   );
 };
 
 export default App;
-
-//default word at initial state.
