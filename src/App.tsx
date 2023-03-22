@@ -4,7 +4,7 @@ import Settings from "./components/settings";
 import Search from "./components/search";
 import Definition from "./components/definition";
 
-type Phonetics = {
+export type Phonetics = {
   text: string;
   audio: string;
   sourceUrl?: string;
@@ -14,7 +14,7 @@ type Phonetics = {
   };
 };
 
-type Definition = {
+export type Definition = {
   definition: string;
   synonyms: string[];
   antonyms: string[];
