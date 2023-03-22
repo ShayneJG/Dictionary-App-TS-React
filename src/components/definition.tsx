@@ -5,16 +5,17 @@ import PartOfSpeech from "./partOfSpeech";
 
 interface DefinitionProps {
   word: WordApiResponse;
+  fetchWord: Function;
 }
 
-const Definition: React.FC<DefinitionProps> = ({ word }) => {
+const Definition: React.FC<DefinitionProps> = ({ word, fetchWord }) => {
   let audio: string;
   word.meanings.map((meaning) => {
     console.log(meaning);
   });
-  word.phonetics.map((str) => {
-    if (str.audio !== "") {
-      audio = str.audio;
+  word.phonetics.map((obj) => {
+    if (obj.audio !== "") {
+      audio = obj.audio;
     }
   });
 
@@ -29,7 +30,7 @@ const Definition: React.FC<DefinitionProps> = ({ word }) => {
       </div>
       <div id="parts-of-speech">
         {word.meanings.map((meaning) => (
-          <PartOfSpeech meaning={meaning} />
+          <PartOfSpeech meaning={meaning} fetchWord={fetchWord} />
         ))}
       </div>
     </div>

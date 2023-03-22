@@ -13,9 +13,10 @@ import { Meanings, Definition } from "../App";
 
 type PartOfSpeechProps = {
   meaning: Meanings;
+  fetchWord: Function;
 };
 
-const PartOfSpeech: React.FC<PartOfSpeechProps> = ({ meaning }) => {
+const PartOfSpeech: React.FC<PartOfSpeechProps> = ({ meaning, fetchWord }) => {
   return (
     <div>
       <div className="flex">
@@ -39,9 +40,25 @@ const PartOfSpeech: React.FC<PartOfSpeechProps> = ({ meaning }) => {
         <span className="ml-5">
           {meaning.synonyms.map((word, index) => {
             if (index === 0) {
-              return word;
+              return (
+                <a
+                  onClick={() => {
+                    fetchWord(word);
+                  }}
+                >
+                  {word}
+                </a>
+              );
             } else {
-              return ", " + word;
+              return (
+                <a
+                  onClick={() => {
+                    fetchWord(word);
+                  }}
+                >
+                  {", " + word}
+                </a>
+              );
             }
           })}
         </span>

@@ -49,8 +49,6 @@ export type WordApiResponse = {
 };
 
 const App = () => {
-  //interfaces
-
   const firstWord: WordApiResponse = {
     word: "origin",
     phonetic: "/ˈɒɹ.ə.dʒən/",
@@ -137,7 +135,7 @@ const App = () => {
     <div id="app-container" className="w-1/2 m-auto">
       <Settings setFont={setFont} setNight={setNight} night={night} />
       <Search fetchWord={fetchWord} />
-      <Definition word={data} />
+      <Definition word={data} fetchWord={fetchWord} />
     </div>
   );
 };
