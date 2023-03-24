@@ -114,7 +114,7 @@ const App = () => {
     sourceUrls: ["https://en.wiktionary.org/wiki/origin"],
   };
 
-  const [font, setFont] = useState<string>("sans serif");
+  const [font, setFont] = useState<string>("font-sans");
   const [night, setNight] = useState<boolean>(false);
   const [data, setData] = useState<WordApiResponse>(firstWord);
 
@@ -132,7 +132,7 @@ const App = () => {
   };
 
   return (
-    <div id="app-container" className="w-1/2 m-auto">
+    <div id="app-container" className={`w-1/2 m-auto ${font}`}>
       <Settings setFont={setFont} setNight={setNight} night={night} />
       <Search fetchWord={fetchWord} />
       <Definition word={data} fetchWord={fetchWord} />
