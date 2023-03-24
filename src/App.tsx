@@ -136,6 +136,10 @@ const App = () => {
       <Settings setFont={setFont} setNight={setNight} night={night} />
       <Search fetchWord={fetchWord} />
       <Definition word={data} fetchWord={fetchWord} />
+      <div className="border border-solid"></div>
+      <div>
+        <p>Source</p> <a href={data.sourceUrls[0]}>{data.sourceUrls[0]}</a>
+      </div>
     </div>
   );
 };
