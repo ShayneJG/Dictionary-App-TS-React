@@ -32,7 +32,7 @@ const Search: React.FunctionComponent<SearchProps> = ({ fetchWord }) => {
           type="text"
           onChange={changeHandle}
           value={search}
-          className="w-full bg-[#F4F4F4]  rounded-2xl	 font-bold text-sm	indent-2.5	 text-[#2d2d2d]"
+          className="w-full bg-[#F4F4F4]  rounded-2xl	 font-bold text-[16px] indent-5	 text-[#2d2d2d]"
         />
         <button
           id="search-button"
