@@ -29,7 +29,7 @@ const Settings: React.FunctionComponent<SettingsProps> = ({
         <div className="flex justify-end ml-10 ">
           <Nightmode setNight={setNight} night={night} />
 
-          <img className="pl-2" src={moonIcon}></img>
+          <img className="pl-2 h-5 m-auto" src={moonIcon}></img>
         </div>
       </div>
     </div>
