@@ -3,6 +3,7 @@ import "./App.css";
 import Settings from "./components/settings";
 import Search from "./components/search";
 import Definition from "./components/definition";
+import newWindowIcon from "./assets/images/icon-new-window.svg";
 
 export type Phonetics = {
   text: string;
@@ -132,15 +133,20 @@ const App = () => {
   };
 
   return (
-    <div id="app-container" className={`w-1/2 m-auto ${font}`}>
+    <div id="app-container" className={`m-5 ${font}`}>
       <Settings setFont={setFont} setNight={setNight} night={night} />
       <Search fetchWord={fetchWord} />
       <Definition word={data} fetchWord={fetchWord} />
       <div className="border border-solid"></div>
-      <div>
-        <p>Source</p>{" "}
-        <a target="_blank" href={data.sourceUrls[0]}>
+      <div className="flex">
+        <p className="mr-5">Source</p>
+        <a
+          className="flex justify-between"
+          target="_blank"
+          href={data.sourceUrls[0]}
+        >
           {data.sourceUrls[0]}
+          <img className="ml-5" src={newWindowIcon} />
         </a>
       </div>
     </div>

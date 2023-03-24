@@ -1,4 +1,3 @@
-import { useState } from "react";
 import bookIcon from "../assets/images/logo.svg";
 import Switch from "react-switch";
 import moonIcon from "../assets/images/icon-moon.svg";
@@ -20,17 +19,18 @@ const Settings: React.FunctionComponent<SettingsProps> = ({
   night,
 }) => {
   return (
-    <div className="flex flex-row mt-10">
+    <div className="flex flex-row mb-5">
       <div className="w-1/2">
         <img src={bookIcon}></img>
       </div>
-      <div className=" w-1/2 flex justify-end content-center">
+      <div className="flex justify-end  ">
         <Dropdown setFont={setFont} />
-        <div className="border border-solid"></div>
 
-        <Nightmode setNight={setNight} night={night} />
+        <div className="flex justify-end ml-10 ">
+          <Nightmode setNight={setNight} night={night} />
 
-        <img src={moonIcon}></img>
+          <img className="pl-2" src={moonIcon}></img>
+        </div>
       </div>
     </div>
   );
@@ -46,10 +46,12 @@ const Dropdown: React.FunctionComponent<{ setFont: (val: string) => void }> = ({
   }
 
   return (
-    <div className="flex">
+    <div className="flex border-r">
       <select
         onChange={changeHandle}
-        className={"outline-none	appearance-none pr-10"}
+        className={
+          "outline-none text-[#2d2d2d] font-bold text-sm	appearance-none leading-6	 pr-5 mr-3"
+        }
       >
         <option value="font-sans">Sans Serif</option>
         <option value="font-serif">Serif</option>
@@ -68,7 +70,18 @@ const Nightmode: React.FunctionComponent<NightmodeProps> = ({
     setNight((prev) => !prev);
   }
 
-  return <Switch checked={night} onChange={changeHandle} className="m-auto" />;
+  return (
+    <Switch
+      checked={night}
+      onChange={changeHandle}
+      uncheckedIcon={false}
+      handleDiameter={14}
+      width={40}
+      height={20}
+      offColor={"#757575"}
+      className="m-auto"
+    />
+  );
 };
 
 //night mode selector

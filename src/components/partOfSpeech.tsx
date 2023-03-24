@@ -25,13 +25,9 @@ const PartOfSpeech: React.FC<PartOfSpeechProps> = ({ meaning, fetchWord }) => {
       </div>
       <div>
         <h2>Meaning</h2>
-        <ul>
+        <ul className="ml-5 list-disc marker:text-purple-500">
           {meaning.definitions.map((arr, index) => {
-            return (
-              <li key={index} className="list-disc ">
-                {arr.definition}
-              </li>
-            );
+            return <li key={index}>{arr.definition}</li>;
           })}
         </ul>
       </div>
