@@ -19,9 +19,9 @@ const Settings: React.FunctionComponent<SettingsProps> = ({
   night,
 }) => {
   return (
-    <div className="flex flex-row mb-5">
+    <div className="flex flex-row mb-5 h-8 ">
       <div className="w-1/2">
-        <img src={bookIcon}></img>
+        <img className="h-8" src={bookIcon}></img>
       </div>
       <div className="flex justify-end  ">
         <Dropdown setFont={setFont} />

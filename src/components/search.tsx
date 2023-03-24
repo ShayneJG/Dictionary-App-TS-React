@@ -26,10 +26,19 @@ const Search: React.FunctionComponent<SearchProps> = ({ fetchWord }) => {
     <div>
       <form
         onSubmit={submitHandle}
-        className="border border-solid flex justify-between"
+        className=" bg-[#F4F4F4] rounded-2xl	 flex justify-between outline-none h-[48px]"
       >
-        <input type="text" onChange={changeHandle} value={search} />
-        <button id="search-button" type="submit">
+        <input
+          type="text"
+          onChange={changeHandle}
+          value={search}
+          className="w-full bg-[#F4F4F4]  rounded-2xl	 font-bold text-sm	indent-2.5	 text-[#2d2d2d]"
+        />
+        <button
+          id="search-button"
+          type="submit"
+          className="absolute right-10 w-[16px] h-[16px] top-[87px]"
+        >
           {<img src={searchIcon} />}
         </button>
       </form>
