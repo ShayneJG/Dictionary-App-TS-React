@@ -20,14 +20,18 @@ const PartOfSpeech: React.FC<PartOfSpeechProps> = ({ meaning, fetchWord }) => {
   return (
     <div>
       <div className="flex">
-        <h1>{meaning.partOfSpeech}</h1>
-        <div className="border border-solid w-full h-0 m-auto ml-5"></div>
+        <h1 className="font-bold italic text-lg">{meaning.partOfSpeech}</h1>
+        <div className=" border border-solid w-full m-auto ml-3 border-[#e9e9e9]/50"></div>
       </div>
       <div>
-        <h2>Meaning</h2>
-        <ul className="ml-5 list-disc marker:text-purple-500">
+        <h2 className="text-base mt-5 mb-3	text-[#757575]">Meaning</h2>
+        <ul className="ml-4 list-disc marker:text-[#8f19e8] marker:text-sm">
           {meaning.definitions.map((arr, index) => {
-            return <li key={index}>{arr.definition}</li>;
+            return (
+              <li className="mb-3 text-[15px] pl-2 text-[#2d2d2d]	" key={index}>
+                {arr.definition}
+              </li>
+            );
           })}
         </ul>
       </div>
