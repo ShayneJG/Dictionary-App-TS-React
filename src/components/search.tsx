@@ -37,7 +37,7 @@ const Search: React.FunctionComponent<SearchProps> = ({ fetchWord }) => {
         <button
           id="search-button"
           type="submit"
-          className="absolute right-10 w-[16px] h-[16px] top-[87px]"
+          className="absolute right-10 w-[17px] h-[17px] top-[87px]"
         >
           {<img src={searchIcon} />}
         </button>
