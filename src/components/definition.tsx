@@ -11,9 +11,7 @@ interface DefinitionProps {
 
 const Definition: React.FC<DefinitionProps> = ({ word, fetchWord }) => {
   let audio: string = "";
-  word.meanings.map((meaning) => {
-    console.log(meaning);
-  });
+
   word.phonetics.map((obj) => {
     if (obj.audio !== "") {
       audio = obj.audio;
@@ -24,6 +22,8 @@ const Definition: React.FC<DefinitionProps> = ({ word, fetchWord }) => {
 
   const handleImageClick = () => {
     if (audioRef.current) {
+      audioRef.current.src = `${audio}?t=${new Date().getTime()}`;
+
       audioRef.current.play();
     }
   };

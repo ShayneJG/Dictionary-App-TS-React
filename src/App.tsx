@@ -137,16 +137,16 @@ const App = () => {
       <Settings setFont={setFont} setNight={setNight} night={night} />
       <Search fetchWord={fetchWord} />
       <Definition word={data} fetchWord={fetchWord} />
-      <div className="border border-solid"></div>
-      <div className="flex">
-        <p className="mr-5">Source</p>
+      <div className="border border-[#e9e9e9]/50 border-solid"></div>
+      <div>
+        <p className="mr-5 mt-3 text-[#757575] text-[14px] underline">Source</p>
         <a
-          className="flex justify-between"
+          className="flex underline text-[#2d2d2d] text-[14px] mb-20 "
           target="_blank"
           href={data.sourceUrls[0]}
         >
           {data.sourceUrls[0]}
-          <img className="ml-5" src={newWindowIcon} />
+          <img className="ml-2" src={newWindowIcon} />
         </a>
       </div>
     </div>

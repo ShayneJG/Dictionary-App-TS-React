@@ -19,17 +19,25 @@ type PartOfSpeechProps = {
 const PartOfSpeech: React.FC<PartOfSpeechProps> = ({ meaning, fetchWord }) => {
   return (
     <div>
-      <div className="flex">
+      <div className="flex mt-5 mb-5">
         <h1 className="font-bold italic text-lg">{meaning.partOfSpeech}</h1>
-        <div className=" border border-solid w-full m-auto ml-3 border-[#e9e9e9]/50"></div>
+        <div className=" border border-solid w-full m-auto ml-4 border-[#e9e9e9]/50"></div>
       </div>
       <div>
         <h2 className="text-base mt-5 mb-3	text-[#757575]">Meaning</h2>
         <ul className="ml-4 list-disc marker:text-[#8f19e8] marker:text-sm">
           {meaning.definitions.map((arr, index) => {
             return (
-              <li className="mb-3 text-[15px] pl-2 text-[#2d2d2d]	" key={index}>
+              <li
+                className="mb-3 text-[15px]   pl-2 text-[#2d2d2d] tracking-wide		leading-6	"
+                key={index}
+              >
                 {arr.definition}
+                {arr.example && (
+                  <p className="pt-3 pb-3 text-[#757575]">
+                    {'"' + arr.example + '"'}
+                  </p>
+                )}
               </li>
             );
           })}
@@ -38,8 +46,8 @@ const PartOfSpeech: React.FC<PartOfSpeechProps> = ({ meaning, fetchWord }) => {
 
       {meaning.synonyms[0] && (
         <div className="flex">
-          <h2>Synonyms</h2>
-          <span className="ml-5">
+          <h2 className="text-[#757575] text-base">Synonyms</h2>
+          <span className="ml-5 text-base text-[#A445ed] font-bold">
             {meaning.synonyms.map((word, index) => {
               if (index === 0) {
                 return (
