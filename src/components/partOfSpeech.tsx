@@ -35,34 +35,37 @@ const PartOfSpeech: React.FC<PartOfSpeechProps> = ({ meaning, fetchWord }) => {
           })}
         </ul>
       </div>
-      <div className="flex">
-        <h2>Synonyms</h2>
-        <span className="ml-5">
-          {meaning.synonyms.map((word, index) => {
-            if (index === 0) {
-              return (
-                <a
-                  onClick={() => {
-                    fetchWord(word);
-                  }}
-                >
-                  {word}
-                </a>
-              );
-            } else {
-              return (
-                <a
-                  onClick={() => {
-                    fetchWord(word);
-                  }}
-                >
-                  {", " + word}
-                </a>
-              );
-            }
-          })}
-        </span>
-      </div>
+
+      {meaning.synonyms[0] && (
+        <div className="flex">
+          <h2>Synonyms</h2>
+          <span className="ml-5">
+            {meaning.synonyms.map((word, index) => {
+              if (index === 0) {
+                return (
+                  <a
+                    onClick={() => {
+                      fetchWord(word);
+                    }}
+                  >
+                    {word}
+                  </a>
+                );
+              } else {
+                return (
+                  <a
+                    onClick={() => {
+                      fetchWord(word);
+                    }}
+                  >
+                    {", " + word}
+                  </a>
+                );
+              }
+            })}
+          </span>
+        </div>
+      )}
 
       <div>
         <h3></h3>
