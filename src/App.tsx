@@ -117,7 +117,7 @@ const App = () => {
 
   const [font, setFont] = useState<string>("font-sans");
   const [night, setNight] = useState<boolean>(false);
-  const [data, setData] = useState<WordApiResponse>(firstWord);
+  const [data, setData] = useState<WordApiResponse | null>(firstWord);
 
   const fetchWord = async (searchTerm: string) => {
     if (searchTerm === "") return;
@@ -125,6 +125,7 @@ const App = () => {
       `https://api.dictionaryapi.dev/api/v2/entries/en/${searchTerm}`
     );
     if (response.status === 404) {
+      setData(null);
       throw new Error(`Word not found: ${searchTerm}`);
     }
     const data = await response.json();
@@ -140,18 +141,25 @@ const App = () => {
       <Settings setFont={setFont} setNight={setNight} night={night} />
       <Search fetchWord={fetchWord} />
       <Definition word={data} fetchWord={fetchWord} font={font} />
-      <div className="border border-[#e9e9e9]/50 border-solid"></div>
-      <div>
-        <p className="mr-5 mt-3 text-[#757575] text-[14px] underline">Source</p>
-        <a
-          className="flex underline text-[#2d2d2d] dark:text-white text-[14px] mb-20 "
-          target="_blank"
-          href={data.sourceUrls[0]}
-        >
-          {data.sourceUrls[0]}
-          <img className="ml-2" src={newWindowIcon} />
-        </a>
-      </div>
+      {data !== null && (
+        <div>
+          {" "}
+          <div className="border border-[#e9e9e9]/50 border-solid"></div>
+          <div>
+            <p className="mr-5 mt-3 text-[#757575] text-[14px] underline">
+              Source
+            </p>
+            <a
+              className="flex underline text-[#2d2d2d] dark:text-white text-[14px] mb-20 "
+              target="_blank"
+              href={data.sourceUrls[0]}
+            >
+              {data.sourceUrls[0]}
+              <img className="ml-2" src={newWindowIcon} />
+            </a>
+          </div>{" "}
+        </div>
+      )}
     </div>
   );
 };

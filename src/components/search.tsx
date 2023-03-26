@@ -42,7 +42,6 @@ const Search: React.FunctionComponent<SearchProps> = ({ fetchWord }) => {
           {<img src={searchIcon} />}
         </button>
       </form>
-      {error && <p>{error}</p>}
     </div>
   );
 };
