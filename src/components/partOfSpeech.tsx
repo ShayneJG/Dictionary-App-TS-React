@@ -14,13 +14,26 @@ import { Meanings, Definition } from "../App";
 type PartOfSpeechProps = {
   meaning: Meanings;
   fetchWord: Function;
+  font: string;
 };
 
-const PartOfSpeech: React.FC<PartOfSpeechProps> = ({ meaning, fetchWord }) => {
+const PartOfSpeech: React.FC<PartOfSpeechProps> = ({
+  meaning,
+  fetchWord,
+  font,
+}) => {
   return (
     <div>
       <div className="flex mt-5 mb-5">
-        <h1 className="font-bold italic text-lg">{meaning.partOfSpeech}</h1>
+        <h1
+          className={`font-bold ${
+            font === "font-mono" ? "" : "italic"
+          } text-lg leading-5 ${
+            font === "font-serif" ? "font-loraItalic" : ""
+          } `}
+        >
+          {meaning.partOfSpeech}
+        </h1>
         <div className=" border border-solid w-full m-auto ml-4 border-[#e9e9e9]/50"></div>
       </div>
       <div>
@@ -29,12 +42,12 @@ const PartOfSpeech: React.FC<PartOfSpeechProps> = ({ meaning, fetchWord }) => {
           {meaning.definitions.map((arr, index) => {
             return (
               <li
-                className="mb-3 text-[15px]   pl-2 text-[#2d2d2d] tracking-wide		leading-6	"
+                className="mb-3 text-[15px]   pl-2 text-[#2d2d2d]	 	leading-6	"
                 key={index}
               >
                 {arr.definition}
                 {arr.example && (
-                  <p className="pt-3 pb-3 text-[#757575]">
+                  <p key={index} className="pt-3 pb-3 text-[#757575]">
                     {'"' + arr.example + '"'}
                   </p>
                 )}
@@ -52,6 +65,7 @@ const PartOfSpeech: React.FC<PartOfSpeechProps> = ({ meaning, fetchWord }) => {
               if (index === 0) {
                 return (
                   <a
+                    key={index}
                     onClick={() => {
                       fetchWord(word);
                     }}
@@ -62,6 +76,7 @@ const PartOfSpeech: React.FC<PartOfSpeechProps> = ({ meaning, fetchWord }) => {
               } else {
                 return (
                   <a
+                    key={index}
                     onClick={() => {
                       fetchWord(word);
                     }}

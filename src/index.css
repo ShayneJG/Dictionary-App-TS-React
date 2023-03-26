@@ -8,3 +8,21 @@ select {
   background-position: right center;
   background-position: calc(100% - 6px) center;
 }
+
+@font-face {
+  font-family: "Inter";
+  src: url("./assets/fonts/inter/Inter.ttf");
+}
+@font-face {
+  font-family: "Lora";
+  src: url(./assets/fonts/lora/Lora.ttf);
+}
+@font-face {
+  font-family: "Inconsolata";
+  src: url(./assets/fonts/inconsolata/Inconsolata.ttf);
+}
+
+@font-face {
+  font-family: "Lora-italic";
+  src: url(./assets/fonts/lora/Lora-Italic.ttf);
+}

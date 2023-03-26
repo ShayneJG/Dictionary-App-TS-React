@@ -7,9 +7,10 @@ import { useRef } from "react";
 interface DefinitionProps {
   word: WordApiResponse;
   fetchWord: Function;
+  font: string;
 }
 
-const Definition: React.FC<DefinitionProps> = ({ word, fetchWord }) => {
+const Definition: React.FC<DefinitionProps> = ({ word, fetchWord, font }) => {
   let audio: string = "";
 
   word.phonetics.map((obj) => {
@@ -48,7 +49,7 @@ const Definition: React.FC<DefinitionProps> = ({ word, fetchWord }) => {
       </div>
       <div id="parts-of-speech">
         {word.meanings.map((meaning) => (
-          <PartOfSpeech meaning={meaning} fetchWord={fetchWord} />
+          <PartOfSpeech meaning={meaning} fetchWord={fetchWord} font={font} />
         ))}
       </div>
     </div>

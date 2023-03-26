@@ -2,7 +2,14 @@
 module.exports = {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        sans: ["Inter"],
+        serif: ["Lora"],
+        mono: ["Inconsolata"],
+        loraItalic: ["Lora-italic"],
+      },
+    },
   },
   plugins: [],
 };

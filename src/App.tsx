@@ -136,7 +136,7 @@ const App = () => {
     <div id="app-container" className={`m-5 ${font}`}>
       <Settings setFont={setFont} setNight={setNight} night={night} />
       <Search fetchWord={fetchWord} />
-      <Definition word={data} fetchWord={fetchWord} />
+      <Definition word={data} fetchWord={fetchWord} font={font} />
       <div className="border border-[#e9e9e9]/50 border-solid"></div>
       <div>
         <p className="mr-5 mt-3 text-[#757575] text-[14px] underline">Source</p>
