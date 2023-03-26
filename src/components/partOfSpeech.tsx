@@ -26,7 +26,7 @@ const PartOfSpeech: React.FC<PartOfSpeechProps> = ({
     <div>
       <div className="flex mt-5 mb-5">
         <h1
-          className={`font-bold ${
+          className={`font-bold   ${
             font === "font-mono" ? "" : "italic"
           } text-lg leading-5 ${
             font === "font-serif" ? "font-loraItalic" : ""
@@ -38,11 +38,11 @@ const PartOfSpeech: React.FC<PartOfSpeechProps> = ({
       </div>
       <div>
         <h2 className="text-base mt-5 mb-3	text-[#757575]">Meaning</h2>
-        <ul className="ml-4 list-disc marker:text-[#8f19e8] marker:text-sm">
+        <ul className="ml-4 list-disc marker:text-[#8f19e8] marker:text-sm ">
           {meaning.definitions.map((arr, index) => {
             return (
               <li
-                className="mb-3 text-[15px]   pl-2 text-[#2d2d2d]	 	leading-6	"
+                className="mb-3 text-[15px]   pl-2 text-[#2d2d2d] dark:text-white	 	leading-6	"
                 key={index}
               >
                 {arr.definition}
@@ -58,7 +58,7 @@ const PartOfSpeech: React.FC<PartOfSpeechProps> = ({
       </div>
 
       {meaning.synonyms[0] && (
-        <div className="flex">
+        <div className="flex mt-6 mb-6">
           <h2 className="text-[#757575] text-base">Synonyms</h2>
           <span className="ml-5 text-base text-[#A445ed] font-bold">
             {meaning.synonyms.map((word, index) => {

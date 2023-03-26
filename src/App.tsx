@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./App.css";
 import Settings from "./components/settings";
 import Search from "./components/search";
@@ -132,8 +132,11 @@ const App = () => {
     console.log(data[0]);
   };
 
+  useEffect(() => {
+    document.documentElement.className = night ? "dark bg-[#050505]" : "";
+  }, [night]);
   return (
-    <div id="app-container" className={`m-5 ${font}`}>
+    <div id="app-container" className={`m-5 ${font} dark:text-white`}>
       <Settings setFont={setFont} setNight={setNight} night={night} />
       <Search fetchWord={fetchWord} />
       <Definition word={data} fetchWord={fetchWord} font={font} />
@@ -141,7 +144,7 @@ const App = () => {
       <div>
         <p className="mr-5 mt-3 text-[#757575] text-[14px] underline">Source</p>
         <a
-          className="flex underline text-[#2d2d2d] text-[14px] mb-20 "
+          className="flex underline text-[#2d2d2d] dark:text-white text-[14px] mb-20 "
           target="_blank"
           href={data.sourceUrls[0]}
         >

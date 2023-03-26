@@ -26,10 +26,10 @@ const Settings: React.FunctionComponent<SettingsProps> = ({
       <div className="flex justify-end  ">
         <Dropdown setFont={setFont} />
 
-        <div className="flex justify-end ml-10 ">
+        <div className="flex justify-end ml-5 ">
           <Nightmode setNight={setNight} night={night} />
 
-          <img className="pl-2 h-5 m-auto" src={moonIcon}></img>
+          <Moon stroke={night ? "#A445ED" : "#838383"} />
         </div>
       </div>
     </div>
@@ -46,11 +46,11 @@ const Dropdown: React.FunctionComponent<{ setFont: (val: string) => void }> = ({
   }
 
   return (
-    <div className="flex border-r">
+    <div className="flex border-r border-[#e9e9e9]">
       <select
         onChange={changeHandle}
         className={
-          "outline-none text-[#2d2d2d] font-bold text-sm	appearance-none text-right leading-6	 pr-8 mr-3"
+          "outline-none text-[#2d2d2d] dark:text-white dark:bg-[#050505] font-bold text-sm	appearance-none text-right leading-6	 pr-8 mr-3"
         }
       >
         <option value="font-sans">Sans Serif</option>
@@ -75,10 +75,12 @@ const Nightmode: React.FunctionComponent<NightmodeProps> = ({
       checked={night}
       onChange={changeHandle}
       uncheckedIcon={false}
+      checkedIcon={false}
       handleDiameter={14}
       width={40}
       height={20}
       offColor={"#757575"}
+      onColor="#A445ED"
       className="m-auto"
     />
   );
@@ -86,4 +88,26 @@ const Nightmode: React.FunctionComponent<NightmodeProps> = ({
 
 //night mode selector
 
+//moon icon
+
+const Moon: React.FunctionComponent<{ stroke: string }> = ({ stroke }) => {
+  return (
+    <svg
+      className="m-auto ml-3"
+      xmlns="http://www.w3.org/2000/svg"
+      width="20"
+      height="20"
+      viewBox="0 0 22 22"
+    >
+      <path
+        fill="none"
+        stroke={stroke}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="1.5"
+        d="M1 10.449a10.544 10.544 0 0 0 19.993 4.686C11.544 15.135 6.858 10.448 6.858 1A10.545 10.545 0 0 0 1 10.449Z"
+      />
+    </svg>
+  );
+};
 export default Settings;
