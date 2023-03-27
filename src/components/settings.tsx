@@ -1,6 +1,5 @@
 import bookIcon from "../assets/images/logo.svg";
 import Switch from "react-switch";
-import moonIcon from "../assets/images/icon-moon.svg";
 
 //interfaces
 interface SettingsProps {
