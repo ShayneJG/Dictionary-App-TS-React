@@ -49,7 +49,7 @@ const Dropdown: React.FunctionComponent<{ setFont: (val: string) => void }> = ({
       <select
         onChange={changeHandle}
         className={
-          "outline-none text-[#2d2d2d] dark:text-white dark:bg-[#050505] font-bold text-sm	appearance-none text-right leading-6	 pr-8 mr-3"
+          "outline-none text-[#2d2d2d] dark:text-white  dark:bg-[#050505] hover:bg-white font-bold text-sm	appearance-none text-left leading-6	 pr-8 mr-3"
         }
       >
         <option value="font-sans">Sans Serif</option>
