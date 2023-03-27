@@ -120,17 +120,19 @@ const App = () => {
   const [data, setData] = useState<WordApiResponse | null>(firstWord);
 
   const fetchWord = async (searchTerm: string) => {
-    if (searchTerm === "") return;
-    const response = await fetch(
-      `https://api.dictionaryapi.dev/api/v2/entries/en/${searchTerm}`
-    );
-    if (response.status === 404) {
+    try {
+      const response = await fetch(
+        `https://api.dictionaryapi.dev/api/v2/entries/en/${searchTerm}`
+      );
+      if (response.status === 404) {
+        throw new Error(`Word not found: ${searchTerm}`);
+      }
+      const data = await response.json();
+      setData(data[0]);
+    } catch (error) {
       setData(null);
-      throw new Error(`Word not found: ${searchTerm}`);
+      console.log("oopsies no word found");
     }
-    const data = await response.json();
-    setData(data[0]);
-    console.log(data[0]);
   };
 
   useEffect(() => {
