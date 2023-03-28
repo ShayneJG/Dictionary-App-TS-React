@@ -140,7 +140,12 @@ const App = () => {
   }, [night]);
   return (
     <div id="app-container" className={`m-5 ${font} dark:text-white`}>
-      <Settings setFont={setFont} setNight={setNight} night={night} />
+      <Settings
+        setFont={setFont}
+        font={font}
+        setNight={setNight}
+        night={night}
+      />
       <Search fetchWord={fetchWord} />
       <Definition word={data} fetchWord={fetchWord} font={font} />
       {data !== null && (

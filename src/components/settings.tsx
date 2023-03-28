@@ -1,11 +1,14 @@
 import bookIcon from "../assets/images/logo.svg";
 import Switch from "react-switch";
+import { Dropdown } from "./dropdown";
+import { useState } from "react";
 
 //interfaces
 interface SettingsProps {
-  setFont: (val: string) => void;
+  setFont: React.Dispatch<React.SetStateAction<string>>;
   setNight: React.Dispatch<React.SetStateAction<boolean>>;
   night: boolean;
+  font: string;
 }
 interface NightmodeProps {
   setNight: React.Dispatch<React.SetStateAction<boolean>>;
@@ -14,6 +17,7 @@ interface NightmodeProps {
 
 const Settings: React.FunctionComponent<SettingsProps> = ({
   setFont,
+  font,
   setNight,
   night,
 }) => {
@@ -22,8 +26,8 @@ const Settings: React.FunctionComponent<SettingsProps> = ({
       <div className="w-1/2">
         <img className="h-8" src={bookIcon}></img>
       </div>
-      <div className="flex justify-end  ">
-        <Dropdown setFont={setFont} />
+      <div className="flex justify-end items-center ">
+        <Dropdown setFont={setFont} font={font} />
 
         <div className="flex justify-end ml-5 ">
           <Nightmode setNight={setNight} night={night} />
@@ -36,29 +40,6 @@ const Settings: React.FunctionComponent<SettingsProps> = ({
 };
 
 //font selector
-const Dropdown: React.FunctionComponent<{ setFont: (val: string) => void }> = ({
-  setFont,
-}): JSX.Element => {
-  function changeHandle(e: React.ChangeEvent<HTMLSelectElement>) {
-    //function to handle option selection and call setFont
-    setFont(e.currentTarget.value);
-  }
-
-  return (
-    <div className="flex border-r border-[#e9e9e9]">
-      <select
-        onChange={changeHandle}
-        className={
-          "outline-none text-[#2d2d2d] dark:text-white  dark:bg-[#050505] hover:bg-white font-bold text-sm	appearance-none text-left leading-6	 pr-8 mr-3"
-        }
-      >
-        <option value="font-sans">Sans Serif</option>
-        <option value="font-serif">Serif</option>
-        <option value="font-mono">Mono</option>
-      </select>
-    </div>
-  );
-};
 
 //nightmode slider
 const Nightmode: React.FunctionComponent<NightmodeProps> = ({
@@ -88,6 +69,18 @@ const Nightmode: React.FunctionComponent<NightmodeProps> = ({
 //night mode selector
 
 //moon icon
+const DropdownIndicator: React.FC = () => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="14"
+      height="8"
+      viewBox="0 0 14 8"
+    >
+      <path fill="none" stroke="#A445ED" strokeWidth="1.5" d="m1 1 6 6 6-6" />
+    </svg>
+  );
+};
 
 const Moon: React.FunctionComponent<{ stroke: string }> = ({ stroke }) => {
   return (
