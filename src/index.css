@@ -26,3 +26,12 @@ select {
   font-family: "Lora-italic";
   src: url(./assets/fonts/lora/Lora-Italic.ttf);
 }
+.play-button-svg:hover #circle-element {
+  fill: #a445ed;
+  opacity: 1;
+}
+
+.play-button-svg:hover #path-element {
+  fill: white;
+  cursor: pointer;
+}

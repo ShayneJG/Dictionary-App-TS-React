@@ -52,11 +52,7 @@ const Definition: React.FC<DefinitionProps> = ({ word, fetchWord, font }) => {
             </h1>
             <h2 className=" text-[#A445ed]">{word.phonetic}</h2>
           </div>
-          <img
-            className="h-12 mt-auto mb-auto"
-            src={playIcon}
-            onClick={handleImageClick}
-          ></img>
+          <PlayIcon handleImageClick={handleImageClick} />
           <audio ref={audioRef}>
             <source src={audio} type="audio/mp3" />
           </audio>
@@ -73,6 +69,38 @@ const Definition: React.FC<DefinitionProps> = ({ word, fetchWord, font }) => {
         </div>
       </div>
     );
+};
+interface PlayIconProps {
+  handleImageClick: React.MouseEventHandler<SVGSVGElement>;
+}
+const PlayIcon: React.FC<PlayIconProps> = ({ handleImageClick }) => {
+  return (
+    <svg
+      onClick={handleImageClick}
+      className="w-12 h-12 mt-3 hover:text-white play-button-svg"
+      xmlns="http://www.w3.org/2000/svg"
+      width="75"
+      height="75"
+      viewBox="0 0 75 75"
+    >
+      <g fill="#A445ED" fillRule="evenodd">
+        <circle
+          id="circle-element"
+          cx="37.5"
+          cy="37.5"
+          r="37.5"
+          opacity=".25"
+          className="circle fill-current text-[#A445ED] hover:cursor-pointer hover:opacity-100"
+        />
+        <path
+          id="path-element"
+          d="M29 27v21l21-10.5"
+          fill="#A445ED"
+          className="triangle "
+        />
+      </g>
+    </svg>
+  );
 };
 
 export default Definition;
