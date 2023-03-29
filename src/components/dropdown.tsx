@@ -37,7 +37,7 @@ export const Dropdown: React.FunctionComponent<DropdownProps> = ({
         }}
         className="flex hover:cursor-pointer"
       >
-        <span className="font-bold text-sm md:text-lg text-end pr-3 text-[#2D2D2D] dark:text-white">
+        <span className="font-bold text-sm md:text-lg text-end pr-3 text-[#2D2D2D] hover:text-[#a445ed] dark:text-white dark:hover:text-[#a445ed]">
           {current}
         </span>
         <svg
