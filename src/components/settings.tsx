@@ -22,11 +22,11 @@ const Settings: React.FunctionComponent<SettingsProps> = ({
   night,
 }) => {
   return (
-    <div className="flex flex-row mb-5 h-8 ">
+    <div className="flex flex-row mb-5 h-8 relative ">
       <div className="w-1/2">
-        <img className="h-8" src={bookIcon}></img>
+        <img className="h-8 md:h-9" src={bookIcon}></img>
       </div>
-      <div className="flex justify-end items-center ">
+      <div className="flex justify-end items-center absolute right-0 ">
         <Dropdown setFont={setFont} font={font} />
 
         <div className="flex justify-end ml-5 ">

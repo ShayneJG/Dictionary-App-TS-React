@@ -47,10 +47,12 @@ const Definition: React.FC<DefinitionProps> = ({ word, fetchWord, font }) => {
       <div>
         <div className="flex justify-between mt-5 mb-5" id="header">
           <div>
-            <h1 className="font-bold text-[32px] text-[#2d2d2d] dark:text-white mb-2">
+            <h1 className="font-bold text-[32px] md:text-[64px] text-[#2d2d2d] dark:text-white mb-2">
               {word.word}
             </h1>
-            <h2 className=" text-[#A445ed]">{word.phonetic}</h2>
+            <h2 className=" text-[#A445ed] -mt-2 md:-mt-4 md:text-2xl">
+              {word.phonetic}
+            </h2>
           </div>
           <PlayIcon handleImageClick={handleImageClick} />
           <audio ref={audioRef}>
@@ -77,7 +79,7 @@ const PlayIcon: React.FC<PlayIconProps> = ({ handleImageClick }) => {
   return (
     <svg
       onClick={handleImageClick}
-      className="w-12 h-12 mt-3 hover:text-white play-button-svg"
+      className="w-12 h-12 md:h-[75px] md:w-[75px]  my-auto hover:text-white play-button-svg"
       xmlns="http://www.w3.org/2000/svg"
       width="75"
       height="75"

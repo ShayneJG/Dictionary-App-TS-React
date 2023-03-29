@@ -139,7 +139,10 @@ const App = () => {
     document.documentElement.className = night ? "dark bg-[#050505]" : "";
   }, [night]);
   return (
-    <div id="app-container" className={`m-5 ${font} dark:text-white`}>
+    <div
+      id="app-container"
+      className={`m-5 md:m-auto md:mt-10 md:max-w-[737px] lg:mx-auto ${font} dark:text-white`}
+    >
       <Settings
         setFont={setFont}
         font={font}
@@ -150,21 +153,20 @@ const App = () => {
       <Definition word={data} fetchWord={fetchWord} font={font} />
       {data !== null && (
         <div>
-          {" "}
           <div className="border border-[#e9e9e9]/50 border-solid"></div>
-          <div>
-            <p className="mr-5 mt-3 text-[#757575] text-[14px] underline">
+          <div className="flex mt-3 mb-20 align-text-bottom ">
+            <p className="mr-5 text-[#757575]  text-[14px] underline underline-offset-2	">
               Source
             </p>
             <a
-              className="flex underline text-[#2d2d2d] dark:text-white text-[14px] mb-20 "
+              className="flex underline underline-offset-2	 text-[#2d2d2d]  dark:text-white text-[14px] "
               target="_blank"
               href={data.sourceUrls[0]}
             >
               {data.sourceUrls[0]}
               <img className="ml-2" src={newWindowIcon} />
             </a>
-          </div>{" "}
+          </div>
         </div>
       )}
     </div>
