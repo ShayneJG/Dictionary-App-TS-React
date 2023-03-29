@@ -65,6 +65,7 @@ const PartOfSpeech: React.FC<PartOfSpeechProps> = ({
               if (index === 0) {
                 return (
                   <a
+                    className="hover:cursor-pointer hover:underline"
                     key={index}
                     onClick={() => {
                       fetchWord(word);
@@ -76,6 +77,7 @@ const PartOfSpeech: React.FC<PartOfSpeechProps> = ({
               } else {
                 return (
                   <a
+                    className="hover:cursor-pointer hover:underline"
                     key={index}
                     onClick={() => {
                       fetchWord(word);
