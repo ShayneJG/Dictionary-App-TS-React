@@ -1,4 +1,4 @@
-import { Meanings, Definition } from "../App";
+import { Meanings } from "../App";
 
 // Meanings = {
 //   partOfSpeech: string;
@@ -93,10 +93,6 @@ const PartOfSpeech: React.FC<PartOfSpeechProps> = ({
           </span>
         </div>
       )}
-
-      <div>
-        <h3></h3>
-      </div>
     </div>
   );
 };

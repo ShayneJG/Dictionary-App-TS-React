@@ -1,14 +1,12 @@
 import bookIcon from "../assets/images/logo.svg";
 import Switch from "react-switch";
 import { Dropdown } from "./dropdown";
-import { useState } from "react";
 
 //interfaces
 interface SettingsProps {
   setFont: React.Dispatch<React.SetStateAction<string>>;
   setNight: React.Dispatch<React.SetStateAction<boolean>>;
   night: boolean;
-  font: string;
 }
 interface NightmodeProps {
   setNight: React.Dispatch<React.SetStateAction<boolean>>;
@@ -17,7 +15,6 @@ interface NightmodeProps {
 
 const Settings: React.FunctionComponent<SettingsProps> = ({
   setFont,
-  font,
   setNight,
   night,
 }) => {
@@ -27,7 +24,7 @@ const Settings: React.FunctionComponent<SettingsProps> = ({
         <img className="h-8 md:h-9" src={bookIcon}></img>
       </div>
       <div className="flex justify-end items-center absolute right-0 ">
-        <Dropdown setFont={setFont} font={font} />
+        <Dropdown setFont={setFont} />
 
         <div className="flex justify-end ml-5 ">
           <Nightmode setNight={setNight} night={night} />

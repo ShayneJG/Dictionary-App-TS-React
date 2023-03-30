@@ -2,12 +2,10 @@ import React, { useState } from "react";
 
 interface DropdownProps {
   setFont: React.Dispatch<React.SetStateAction<string>>;
-  font: string;
 }
 
 export const Dropdown: React.FunctionComponent<DropdownProps> = ({
   setFont,
-  font,
 }) => {
   const [isOpen, setIsOpen] = useState<boolean | React.SetStateAction<boolean>>(
     false

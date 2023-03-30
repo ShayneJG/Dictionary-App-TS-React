@@ -1,5 +1,4 @@
 import { WordApiResponse } from "../App";
-import playIcon from "../assets/images/icon-play.svg";
 import PartOfSpeech from "./partOfSpeech";
 import { useRef } from "react";
 //https://api.dictionaryapi.dev/api/v2/entries/en/<word>
