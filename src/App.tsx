@@ -143,12 +143,7 @@ const App = () => {
       id="app-container"
       className={`m-5 md:m-auto md:mt-10 md:max-w-[737px] lg:mx-auto ${font} dark:text-white`}
     >
-      <Settings
-        setFont={setFont}
-        font={font}
-        setNight={setNight}
-        night={night}
-      />
+      <Settings setFont={setFont} setNight={setNight} night={night} />
       <Search fetchWord={fetchWord} />
       <Definition word={data} fetchWord={fetchWord} font={font} />
       {data !== null && (

@@ -5,6 +5,7 @@ import { Dropdown } from "./dropdown";
 //interfaces
 interface SettingsProps {
   setFont: React.Dispatch<React.SetStateAction<string>>;
+
   setNight: React.Dispatch<React.SetStateAction<boolean>>;
   night: boolean;
 }
